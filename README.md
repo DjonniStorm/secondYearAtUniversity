@@ -8,3 +8,5 @@
 ├── bd - базы данных
 └── otp - основы технологии программирования
 ```
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Bokor&weight=900&size=35&pause=1000&color=F61AF7&width=435&lines=Ich+bin+m%C3%BCde)](https://git.io/typing-svg)

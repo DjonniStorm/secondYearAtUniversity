@@ -1,0 +1,438 @@
+﻿<Window x:Class="LAB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LAB"
+        mc:Ignorable="d"
+        Title="Ваш &quot;Игровой каталог&quot;" 
+        Height="700" MinHeight="620" 
+        Width="1000"  MinWidth="700" 
+        ResizeMode="CanResize"
+        ShowInTaskbar="True"
+    >
+    <Window.Resources>
+        <LinearGradientBrush 
+            x:Key="ButtonGradient" 
+            StartPoint="0, 0"
+            EndPoint="1, 1"
+        >
+            <GradientStop Color="#358FD4" Offset="0" />
+            <GradientStop Color="#3896EA" Offset="0.25" />
+            <GradientStop Color="#3182E1" Offset="0.5" />
+            <GradientStop Color="#2A71D8" Offset="0.75" />
+            <GradientStop Color="#2561D1" Offset="1" />
+        </LinearGradientBrush>
+
+        <LinearGradientBrush 
+            x:Key="ButtonHoverAndClickGradient" 
+            StartPoint="0, 0"
+            EndPoint="1, 1"
+        >
+            <GradientStop Color="#47BFFF" Offset="0.1" />
+            <GradientStop Color="#3EA7F3" Offset="0.5" />
+            <GradientStop Color="#3388E4" Offset="1" />
+        </LinearGradientBrush>
+
+        <DropShadowEffect 
+            x:Key="ShadowEffect"
+            Color="#fff" 
+            BlurRadius="25"
+            ShadowDepth="2"
+            Opacity="0.8" 
+        />
+
+        <Style x:Key="DescriptionButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Background" Value="{StaticResource ButtonGradient}" />
+            <Setter Property="Foreground" Value="#BFDFF7" />
+            <Setter Property="Effect" Value="{StaticResource ShadowEffect}" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter  
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ButtonHoverAndClickGradient}"/>
+                                <Setter Property="Foreground" Value="#BFDFF7"/>
+                                <Setter Property="Effect" Value="{StaticResource ShadowEffect}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="{StaticResource ButtonHoverAndClickGradient}"/>
+                                <Setter Property="Foreground" Value="#BFDFF7"/>
+                                <Setter Property="Effect" Value="{StaticResource ShadowEffect}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MediaButton" TargetType="Button">
+            <Setter Property="Background" Value="#141A24"/>
+            <Setter Property="Foreground" Value="#C5C3C0"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Margin" Value="15 0 15 0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border 
+                            Background="{TemplateBinding Background}"
+                            Padding="5"
+                        >
+                            <ContentPresenter  
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                            />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#2561D1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#2561D1"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Name="Poster" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style x:Name="Slider" TargetType="Slider">
+            <Setter Property="Background" Value="#121921" />
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard
+                        x:Name="colorAnim"
+                        TargetName="btn1"
+                    >
+                        <ColorAnimation 
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                            From="#358FD4"
+                            To="#2561D1"
+                            Duration="0:0:1"
+                            AutoReverse="True"
+                            RepeatBehavior="Forever"
+                        />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid 
+        Background="#1A2B3F"
+    >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border
+                Grid.ColumnSpan="6" 
+                Background="#171D25"
+            >
+            <StackPanel
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                >
+                <TextBlock 
+                    Text="Каталог" 
+                    TextAlignment="Center" 
+                    TextElement.Foreground="#C5C3C0" 
+                    TextElement.FontSize="30 pt"
+                    TextElement.FontWeight="Bold"
+                    TextElement.FontFamily="Comic Sans MS"
+                />
+            </StackPanel>
+        </Border>
+        <StackPanel 
+            Grid.Row="1"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        >
+            <Viewbox>
+                <Image  
+                    Source="Resources\hlf.png"
+                    ToolTip="Half-Life Part I" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+        <StackPanel 
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        >
+            <Viewbox>
+                <Image  
+                    Source="Resources\hlt.jpg"
+                    ToolTip="Half-Life Part II" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+        <StackPanel 
+            Grid.Row="1"
+            Grid.Column="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+        >   
+            <Viewbox>
+                <Image  
+                    Source="Resources\hla.jpg"
+                    ToolTip="Half-Life Alyx" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+       <StackPanel 
+            Grid.Row="1"
+            Grid.Column="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+       >
+            <Viewbox>
+                <Image  
+                    Source="Resources\cs2.png"
+                    ToolTip="Counter Strike 2" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+        <Viewbox
+            Grid.Column="4"
+            Grid.Row="1"
+        >
+            <MediaElement
+                x:Name="VideoElement"
+                Source="" 
+                LoadedBehavior="Manual"
+                UnloadedBehavior="Manual"
+            />
+        </Viewbox>
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="4"    
+        >
+            <Slider
+                x:Name="VideoAudioSlider"
+                Maximum="10"
+                Value="5" 
+                ValueChanged="VideoAudioSlider_ValueChanged"
+            />
+            <StackPanel
+                Orientation="Horizontal"
+            >
+                <Button 
+                    Content="Воспроизвести видео"
+                    Margin="15 0 15 0"
+                    Padding="5"
+                    Style="{StaticResource MediaButton}" 
+                    Click="Button_PlayVideo"
+                />
+                <Button 
+                    Content="Остановить видео"
+                    Padding="5"
+                    Margin="15 0 15 0"
+                    Style="{StaticResource MediaButton}" 
+                    Click="Button_PauseVideo"
+                />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+            Grid.Row="4"
+            Grid.Column="4"    
+        >
+            <Slider 
+                Maximum="10"
+            />
+            <StackPanel
+                Orientation="Horizontal"
+            >
+                <Button 
+                    Content="Воспроизвести видео"
+                    Margin="15 0 15 0"
+                    Style="{StaticResource MediaButton}"
+                />
+                <Button 
+                    Content="Остановить видео"
+                    Style="{StaticResource MediaButton}"
+                />
+            </StackPanel>
+        </StackPanel>
+        <Border
+            Grid.Row="2"    
+            Grid.Column="0"
+            Padding="5"
+        >
+            <Button 
+                Content="Описание" 
+                Click="DescriptionButton_Click"
+                Tag="hl1"
+                x:Name="btn1"
+                FontFamily="Comic Sans MS"
+                FontSize="18"
+                Foreground="#BFDFF7"
+                Effect="{StaticResource ShadowEffect}"
+            />
+        </Border>
+        <Border
+            Grid.Row="2"    
+            Grid.Column="1"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="hl2"
+            />
+        </Border>
+        <Border
+            Grid.Row="2"    
+            Grid.Column="2"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="hlA"
+            />
+        </Border>
+        <Border
+            Grid.Row="2"    
+            Grid.Column="3"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="CS2"
+            />
+        </Border>
+        <Border
+            Grid.Row="4"    
+            Grid.Column="0"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="dota"
+            />
+        </Border>
+        <Border
+            Grid.Row="4"    
+            Grid.Column="1"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Tag="tm2"
+                Click="DescriptionButton_Click"
+            />
+        </Border>
+        <Border
+            Grid.Row="4"    
+            Grid.Column="2"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="gm"
+            />
+        </Border>
+        <Border
+            Grid.Row="4"    
+            Grid.Column="3"
+        >
+            <Button 
+                Style="{StaticResource DescriptionButton}"
+                Content="Описание"
+                Click="DescriptionButton_Click"
+                Tag="WoT"
+            />
+        </Border>
+        <StackPanel 
+             Grid.Row="3"
+             Grid.Column="0"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+        >
+            <Viewbox>
+                <Image  
+                    Source="Resources\dota2.png"
+                    ToolTip="Dota 2" 
+                    Stretch="None"
+               />
+            </Viewbox>
+        </StackPanel>
+        <StackPanel 
+             Grid.Row="3"
+             Grid.Column="1"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+        >
+            <Viewbox>
+                <Image  
+                    Source="Resources\tm2.jpg"
+                    ToolTip="Team Fortress 2" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+        <StackPanel 
+             Grid.Row="3"
+             Grid.Column="2"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+        >   
+            <Viewbox>
+                <Image  
+                    Source="Resources\garrysmode.png"
+                    ToolTip="Garry's mode" 
+                    Stretch="None"
+                />
+            </Viewbox>
+        </StackPanel>
+        <StackPanel 
+             Grid.Row="3"
+             Grid.Column="3"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+        >
+            <Viewbox>
+                <Image  
+                    Source="Resources\worldoftanks.jpg"
+                    ToolTip="World of Tanks" 
+                    Stretch="None"
+            />
+            </Viewbox>
+        </StackPanel>
+    </Grid>
+</Window>

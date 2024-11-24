@@ -1,0 +1,52 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dev_default\\uni\\TSCMI\\LAB\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DDE496C4-627C-4AA0-B88E-0FC906712205}|LAB\\LAB.csproj|d:\\dev_default\\uni\\tscmi\\lab\\lab\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DDE496C4-627C-4AA0-B88E-0FC906712205}|LAB\\LAB.csproj|solutionrelative:lab\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDE496C4-627C-4AA0-B88E-0FC906712205}|LAB\\LAB.csproj|d:\\dev_default\\uni\\tscmi\\lab\\lab\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DDE496C4-627C-4AA0-B88E-0FC906712205}|LAB\\LAB.csproj|solutionrelative:lab\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 182,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\dev_default\\uni\\TSCMI\\LAB\\LAB\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "LAB\\MainWindow.xaml",
+              "ToolTip": "D:\\dev_default\\uni\\TSCMI\\LAB\\LAB\\MainWindow.xaml",
+              "RelativeToolTip": "LAB\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-11T16:32:28.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\dev_default\\uni\\TSCMI\\LAB\\LAB\\App.xaml",
+              "RelativeDocumentMoniker": "LAB\\App.xaml",
+              "ToolTip": "D:\\dev_default\\uni\\TSCMI\\LAB\\LAB\\App.xaml",
+              "RelativeToolTip": "LAB\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-11T16:32:24.886Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

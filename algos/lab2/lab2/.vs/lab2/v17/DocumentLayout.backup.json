@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dev_default\\uni\\aads\\lab2\\lab2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC883314-2F8F-4E9C-8FFE-999EA31C662B}|lab2\\lab2.vcxproj|D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BC883314-2F8F-4E9C-8FFE-999EA31C662B}|lab2\\lab2.vcxproj|solutionrelative:lab2\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BC883314-2F8F-4E9C-8FFE-999EA31C662B}|lab2\\lab2.vcxproj|D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BC883314-2F8F-4E9C-8FFE-999EA31C662B}|lab2\\lab2.vcxproj|solutionrelative:lab2\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Header.h",
+              "DocumentMoniker": "D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Header.h",
+              "RelativeDocumentMoniker": "lab2\\Header.h",
+              "ToolTip": "D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Header.h",
+              "RelativeToolTip": "lab2\\Header.h",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-01T19:02:25.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Source.cpp",
+              "RelativeDocumentMoniker": "lab2\\Source.cpp",
+              "ToolTip": "D:\\dev_default\\uni\\aads\\lab2\\lab2\\lab2\\Source.cpp",
+              "RelativeToolTip": "lab2\\Source.cpp",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAnwBoAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T19:02:12.442Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

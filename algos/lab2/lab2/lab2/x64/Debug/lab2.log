@@ -1,0 +1,5 @@
+﻿  Source.cpp
+D:\dev_default\uni\aads\lab2\lab2\lab2\Source.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\dev_default\uni\aads\lab2\lab2\lab2\Source.cpp(22,22): warning C4305: инициализация: усечение из "double" в "float"
+D:\dev_default\uni\aads\lab2\lab2\lab2\Source.cpp(50,40): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  lab2.vcxproj -> D:\dev_default\uni\aads\lab2\lab2\x64\Debug\lab2.exe

@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run SQL Scripts",
+            "type": "process",
+            "command": "node",
+            "args": [
+                "D:\\dev_default\\uni\\bd\\.vscode\\test.js"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+        }
+    ]
+}
+

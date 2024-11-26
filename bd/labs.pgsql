@@ -34,7 +34,8 @@ WHERE first_name LIKE 'Р_йан';
 SELECT * FROM Client
 WHERE registration_date >= '2023-01-01' AND registration_date < '2024-01-01';
 
-
+SELECT * FROM Receipt
+WHERE AGE(NOW(), date) < INTERVAL '3 year';
 
 -- lab5
 -- a. продемонстрировать работу различных типов соединений; 
@@ -66,14 +67,10 @@ SELECT
     r.total_price AS receipt_total_price,
     p.name AS product_name,
     rl.rental_time AS rental_duration
-FROM 
-    Client c
-JOIN 
-    Receipt r ON c.ID = r.client_id
-JOIN 
-    ReceiptLine rl ON r.ID = rl.receipt_id
-JOIN 
-    Product p ON rl.product_id = p.ID;
+FROM Client c
+JOIN Receipt r ON c.ID = r.client_id
+JOIN ReceiptLine rl ON r.ID = rl.receipt_id
+JOIN Product p ON rl.product_id = p.ID;
 
 -- c. продемонстрировать результат группировки данных из нескольких таблиц;
 SELECT 
@@ -112,3 +109,42 @@ FROM Product p;
 -- 6. Создание представлений. 
 -- Для обработки табличных данных необходимо разработать следующие 
 -- представления и продемонстрировать их выполнение
+
+-- a. сложный синтаксис;
+CREATE VIEW ProductVideoView AS
+SELECT 
+    p.name, 
+    p.price, 
+    p.total, 
+    p.age_rating, 
+    p.release_year,
+    fs.name AS film_studio,
+    gv.name AS genre,
+    STRING_AGG(a.first_name || ' ' || a.second_name, ', ') AS actors
+FROM product p
+INNER JOIN productvideo pv ON pv.product_id = p.ID
+INNER JOIN filmstudio fs ON pv.film_studio = fs.ID
+INNER JOIN Genre_ProductVideo gpv ON pv.product_id = gpv.product_video_id
+INNER JOIN genrevideo gv ON gv.ID = gpv.genre_id
+INNER JOIN Actor_ProductVideo apv ON p.ID = apv.product_id
+INNER JOIN Actor a ON a.ID = apv.actor_id
+GROUP BY 
+    p.ID, p.name, p.price, p.total,
+    p.age_rating, p.release_year, fs.name, gv.name,
+    a.first_name, a.second_name;
+
+SELECT * FROM ProductVideoView;
+DROP VIEW ProductVideoView;
+
+-- b. скрытие столбцов и строк. 
+CREATE VIEW ReceiptsWithDiscountsView AS
+SELECT 
+    r.date AS receipt_date,
+    r.total_price,
+    r.discount
+FROM Receipt r
+WHERE 
+    r.discount IS NOT NULL AND r.discount > 100;
+
+SELECT * FROM ReceiptsWithDiscountsView;
+DROP VIEW ReceiptsWithDiscountsView;

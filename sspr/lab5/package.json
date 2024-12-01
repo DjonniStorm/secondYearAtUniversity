@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "build": "echo 'No build step required for this project'"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}

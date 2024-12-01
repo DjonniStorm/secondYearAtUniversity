@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Вар 10</title>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/743/743356.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script type="text/javascript" src="./task.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="answer alert alert-success" role="alert">
+                Что-то хорошее
+            </div>
+            <div class="mb-3">
+                <label for="matrixSize" class="form-label">Введите размер матрицы:</label>
+                <input min="2" type="number" class="form-control" id="matrixSize" placeholder="вот тут размер" name="matrixSize">
+                <div id="nextText" class="form-text">получится матрица, для которой можно посчитать по заданию или создать новую</div>
+            </div>
+            <div class="form-buttons">
+                <button id="generateButton" class="btn btn-primary" type="button">Сгенерировать</button>
+                <button id="submitButton" type="submit" class="btn btn-primary">Посчитать</button>
+            </div>
+        </form>
+        <div class="alert alert-danger" role="alert">
+            Ошибка!
+        </div>
+        <div class="dataTable">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>Вот такая матрица вышла:</tr>
+                </thead>
+                <tbody id="data">
+                    <tr>
+                        сгенерируйте матрицу
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <style>
+        :root {
+            --vis: hidden;
+            --vis2: hidden;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        form {
+            width: 50%;
+            min-height: 20vh;
+        }
+        .form-buttons {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .alert {
+            visibility: var(--vis);
+        }
+        .answer {
+            visibility: var(--vis2);
+        }
+    </style>
+    <script>
+        const generateButton = document.getElementById('generateButton');
+        const submitButton = document.getElementById('submitButton');
+        const td = document.getElementById('data');
+        const alertPop = document.querySelector('.alert');
+        const answerField = document.querySelector('.answer');
+
+        let matrix;
+
+        generateButton.addEventListener('click', () => {
+            const inputText = document.getElementById('matrixSize').value;
+            if (!inputText) {
+                makeNonAndVis(0);
+                return;
+            }
+
+            makeNonAndVis();
+
+            const parsedText = parseInt(inputText);
+
+            if (parsedText <= 0) {
+                makeNonAndVis(0);
+                return;
+            }
+
+            const create = new Task(parsedText);
+            
+            const { array, html } = create.generate();
+
+            td.innerHTML = html;
+
+            matrix = array;
+        });
+
+        submitButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (!matrix) {
+                makeNonAndVis(0);
+                return;
+            }
+            
+            try {
+                makeNonAndVis(1);
+                answerField.innerText = `Ответ: ${Task.calculate(matrix)}`;
+            } catch (e) {
+                makeNonAndVis(0);
+            }
+            
+        })
+
+        /*
+        * 0 - error
+        * 1 - fine
+        */
+        function makeNonAndVis(arg) {
+            document.documentElement.style.setProperty('--vis', 'hidden');
+            document.documentElement.style.setProperty('--vis2', 'hidden');
+            
+            switch(arg) {
+                case 0:
+                    document.documentElement.style.setProperty('--vis', 'visible');
+                    break;
+                case 1:
+                    document.documentElement.style.setProperty('--vis2', 'visible');
+                    break;
+                default: 
+                    document.documentElement.style.setProperty('--vis', 'hidden');
+                    document.documentElement.style.setProperty('--vis2', 'hidden');
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

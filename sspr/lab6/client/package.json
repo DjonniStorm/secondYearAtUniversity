@@ -1,0 +1,11 @@
+{
+    "name": "client",
+    "version": "1.0.0",
+    "description": "Client application that sends data to the server",
+    "dependencies": {
+      "axios": "^0.21.1",
+      "express": "^4.17.1"
+    },
+    "author": "ilya",
+    "license": "ISC"
+  }

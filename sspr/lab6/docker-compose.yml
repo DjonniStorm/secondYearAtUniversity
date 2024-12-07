@@ -1,1 +1,22 @@
-version '3.8'
+version: '3.8'
+
+services:
+  server:
+    build: ./server
+    expose:
+      - "3000"
+    networks:
+      - my_network
+    container_name: server_app
+
+  client:
+    build: ./client
+    ports:
+      - "8020:80"
+    networks:
+      - my_network
+    container_name: client_app
+
+networks:
+  my_network:
+    driver: bridge

@@ -5,10 +5,10 @@ class Task {
             throw new Error('Invalid matrix');
         }
 
-        let min = matrix[0][0];
+        let min = matrix[1][0];
 
-        for (let i = 0; i < matrix.length; ++i) {
-            for (let j = 0; j < matrix[i].length; ++j) {
+        for (let i = 1; i < matrix.length; ++i) {
+            for (let j = 0; j < i; ++j) { 
                 if (matrix[i][j] < min) {
                     min = matrix[i][j];
                 }
